@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>インド占星術診断｜あなたの魂が向かう4つの方角</title>
+<style>
+:root{
+  --ink:#3a3336; --sub:#8b7f7c; --line:#efe4dc; --panel:#fbf5f0; --white:#fff;
+  --rose:#c07a72; --rosedeep:#a75f5a; --beige:#e8d8c6;
+  --tc1:#f7ddd6; --tc2:#f2e3d3; --tacc:#a75f5a;
+  --shadow:0 16px 44px rgba(58,51,54,.07);
+  --r:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-size:18px;line-height:1.9;
+  font-family:system-ui,-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  -webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;font-family:Georgia,"Times New Roman","Yu Mincho","Hiragino Mincho ProN",serif;
+  font-weight:700;letter-spacing:.03em;line-height:1.55}
+p{margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.sec{padding:96px 0}
+@media(max-width:700px){.sec{padding:64px 0}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.rule{width:64px;height:1px;background:var(--rose);margin:22px auto;opacity:.6}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.22em;color:var(--rosedeep);
+  border:1px solid var(--line);border-radius:999px;padding:7px 20px;background:var(--panel)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-weight:700;
+  font-size:19px;color:#fff;background:var(--rosedeep);border:0;border-radius:999px;padding:17px 40px;
+  cursor:pointer;box-shadow:0 10px 24px rgba(167,95,90,.24);text-decoration:none;
+  transition:transform .18s ease,box-shadow .18s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(167,95,90,.3)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none;font-size:17px;padding:13px 28px}
+.btn.ghost:hover{border-color:var(--rose);color:var(--rosedeep)}
+.fx{opacity:0;transform:translateY(18px);animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:12px;height:70px}
+.logo{font-family:Georgia,"Yu Mincho",serif;font-weight:700;font-size:18px;letter-spacing:.05em}
+.logo i{color:var(--rose);font-style:normal;margin-right:8px}
+.langsw{margin-left:auto;display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#fff}
+.langsw button{font:inherit;font-size:14px;font-weight:700;border:0;background:#fff;color:var(--sub);
+  padding:9px 16px;cursor:pointer;transition:background .18s ease,color .18s ease}
+.langsw button.on{background:var(--rosedeep);color:#fff}
+header .btn{font-size:15px;padding:11px 22px}
+@media(max-width:640px){.logo{font-size:15px}header .btn{display:none}}
+@media(max-width:380px){.logo{font-size:13px}.langsw button{padding:8px 12px;font-size:13px}}
+
+.hero{position:relative;padding:92px 0 76px;text-align:center;overflow:hidden;
+  background:linear-gradient(160deg,#fdf6f2 0%,#faf1ea 55%,#f7e9e5 100%)}
+.hero .wrap{position:relative;z-index:1}
+.mandala{position:absolute;top:50%;left:50%;width:660px;height:660px;transform:translate(-50%,-50%);
+  opacity:.5;animation:spin 60s linear infinite;pointer-events:none}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.hero h1{font-size:clamp(29px,4.6vw,48px);margin:22px 0 18px}
+.hero h1 em{font-style:normal;color:var(--rosedeep)}
+.hero .lead{font-size:20px;color:var(--sub);max-width:670px;margin:0 auto 34px}
+.hero .meta{margin-top:20px;color:var(--sub);font-size:15px}
+
+.quizcard{padding:40px}
+@media(max-width:700px){.quizcard{padding:26px 20px}}
+.qhead{display:flex;justify-content:space-between;font-size:15px;color:var(--sub);font-weight:700;margin-bottom:8px}
+.bar{height:7px;border-radius:999px;background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.bar>i{display:block;height:100%;width:0;border-radius:999px;
+  background:linear-gradient(90deg,var(--beige),var(--rose));transition:width .5s cubic-bezier(.2,.7,.2,1)}
+.qbody{margin-top:34px;animation:slideIn .32s cubic-bezier(.2,.7,.2,1)}
+@keyframes slideIn{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+.qt{font-family:Georgia,"Yu Mincho",serif;font-size:clamp(21px,2.8vw,27px);margin-bottom:26px;line-height:1.6}
+.opt{display:flex;gap:16px;align-items:center;width:100%;text-align:left;font:inherit;font-size:18px;
+  color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;
+  margin-bottom:14px;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.opt:hover{transform:translateY(-3px);border-color:var(--rose);box-shadow:0 12px 26px rgba(192,122,114,.16)}
+.opt .k{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:700;
+  font-family:Georgia,serif;background:var(--panel);color:var(--rosedeep);border:1px solid var(--line)}
+.opt:hover .k{background:var(--rosedeep);color:#fff;border-color:var(--rosedeep)}
+
+#result{display:none}
+.typehead{border-radius:var(--r);padding:46px 40px;text-align:center;color:var(--ink);
+  background:linear-gradient(125deg,var(--tc1),var(--tc2));border:1px solid var(--line);
+  box-shadow:0 18px 44px rgba(58,51,54,.1)}
+@media(max-width:700px){.typehead{padding:32px 22px}}
+.typehead .sanskrit{font-family:Georgia,serif;font-size:13px;letter-spacing:.28em;color:var(--tacc);font-weight:700}
+.typehead h2{font-size:clamp(25px,4vw,38px);margin:14px 0 10px}
+.typehead .el{display:inline-block;border:1px solid var(--tacc);color:var(--tacc);border-radius:999px;
+  padding:5px 18px;font-size:14px;margin-bottom:16px;background:rgba(255,255,255,.5)}
+.typehead p{font-size:17.5px;max-width:660px;margin:0 auto}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
+.pad{padding:34px}
+@media(max-width:700px){.pad{padding:24px 20px}}
+.h3{font-family:Georgia,"Yu Mincho",serif;font-size:21px;margin-bottom:16px}
+.scores{display:grid;gap:18px}
+.srow .lab{display:flex;justify-content:space-between;font-size:16px;font-weight:700;margin-bottom:7px}
+.srow .lab i{font-style:normal;color:var(--sub);font-variant-numeric:tabular-nums}
+.srow .lab small{color:var(--sub);font-weight:400;font-size:13px;margin-left:8px}
+.sbar{height:13px;border-radius:999px;background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.sbar>i{display:block;height:100%;width:0;border-radius:999px;
+  background:linear-gradient(90deg,var(--tacc),var(--rose));transition:width .9s ease-out}
+.plan{display:grid;gap:16px}
+.plan .item{border:1px solid var(--line);border-left:4px solid var(--tacc);border-radius:14px;padding:20px 22px;
+  transition:transform .18s ease,box-shadow .18s ease}
+.plan .item:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(58,51,54,.09)}
+.plan .item b{font-size:18px}
+.plan .item span{display:block;color:var(--sub);font-size:16px}
+.why{margin-top:20px;background:var(--panel);border-radius:14px;padding:20px 22px;font-size:16px}
+.why b{display:block;margin-bottom:4px}
+.note{color:var(--sub);font-size:15px}
+
+
+.weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:900px){.weeks{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.weeks{grid-template-columns:1fr}}
+.week{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;
+  transition:transform .18s ease,box-shadow .18s ease}
+.week:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(58,51,54,.1)}
+.week .wh{padding:13px 18px;font-weight:700;font-size:16px;font-family:Georgia,"Yu Mincho",serif;
+  color:var(--ink);border-bottom:1px solid var(--line)}
+.week ul{list-style:none;margin:0;padding:16px 18px;display:grid;gap:12px}
+.week li label{display:flex;gap:11px;align-items:flex-start;font-size:16px;line-height:1.7;cursor:pointer}
+.week li input{margin-top:6px;width:17px;height:17px;accent-color:var(--rosedeep);flex:none}
+.week li.done label{color:var(--sub);text-decoration:line-through}
+.w1{background:linear-gradient(120deg,#fae3d3,#f6d3bf)}
+.w2{background:linear-gradient(120deg,#f2ecd9,#e8e3c8)}
+.w3{background:linear-gradient(120deg,#fbe0e5,#f6ccd6)}
+.w4{background:linear-gradient(120deg,#ece7f2,#ded9ec)}
+
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:900px){.voices{grid-template-columns:1fr}}
+.voice{padding:28px;font-size:16.5px}
+.voice .q{font-size:17px;line-height:1.9}
+.voice .who{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);color:var(--sub);font-size:15px}
+.faq details{border-bottom:1px solid var(--line);padding:20px 4px}
+.faq summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none;display:flex;gap:14px;align-items:flex-start}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"＋";color:var(--rose);font-weight:700;flex:none}
+.faq details[open] summary::before{content:"−"}
+.faq p{margin-top:12px;color:var(--sub);font-size:17px;padding-left:28px}
+
+.ctabox{border-radius:var(--r);padding:52px 44px;text-align:center;color:var(--ink);
+  background:linear-gradient(125deg,var(--tc1),var(--tc2));border:1px solid var(--line);
+  box-shadow:0 18px 44px rgba(58,51,54,.1)}
+@media(max-width:700px){.ctabox{padding:34px 22px}}
+.ctabox h2{font-size:clamp(23px,3.4vw,33px);margin-bottom:14px}
+.ctabox p{font-size:18px;margin-bottom:28px;color:var(--sub)}
+.ctabox .sm{font-size:15px;color:var(--sub);margin-top:16px}
+footer.site{border-top:1px solid var(--line);padding:40px 0 60px;color:var(--sub);font-size:15px;text-align:center}
+
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:80}
+#confetti i{position:absolute;width:8px;height:14px;border-radius:2px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .fx,.reveal{opacity:1!important;transform:none!important}
+}
+
+#report{display:none}
+@media print{
+  @page{size:A4;margin:12mm}
+  html,body{background:#fff}
+  body{font-size:11.5px;line-height:1.65}
+  .noprint,header.site,.hero,#quiz,#voices,#faq,footer.site,#result,#confetti{display:none!important}
+  #report{display:block!important}
+  #report .ritem,#report .rw,#report .rweeks{break-inside:avoid;page-break-inside:avoid}
+  #report h2{break-after:avoid;page-break-after:avoid}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+}
+#report .rhead{padding:18px 22px;border-radius:10px;color:#3a3336;
+  background:linear-gradient(125deg,var(--tc1),var(--tc2));border:1px solid #efe4dc}
+#report .rhead h1{font-size:21px;margin-bottom:4px}
+#report .rhead .d{font-size:11px;color:#8b7f7c}
+#report h2{font-size:14.5px;margin:16px 0 8px;padding-left:10px;border-left:4px solid var(--tacc)}
+#report .rbar{height:11px;background:#f6efe9;border-radius:999px;overflow:hidden;margin:3px 0 9px}
+#report .rbar i{display:block;height:100%;background:linear-gradient(90deg,var(--tacc),#c07a72)}
+#report .rlab{display:flex;justify-content:space-between;font-size:10.5px;font-weight:700}
+#report .ritem{border:1px solid #efe4dc;border-left:4px solid var(--tacc);border-radius:7px;padding:7px 11px;margin-bottom:6px}
+#report .rweeks{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+#report .rw{border-radius:7px;overflow:hidden;border:1px solid #efe4dc}
+#report .rw .t{padding:5px 9px;font-weight:700;font-size:11px;color:#3a3336}
+#report .rw ul{margin:0;padding:7px 9px 7px 21px;font-size:10.5px;line-height:1.55}
+#report .foot{margin-top:12px;border-top:1px solid #efe4dc;padding-top:7px;font-size:9.5px;color:#8b7f7c}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="logo"><i>✦</i><span data-i18n="brand"></span></div>
+    <div class="langsw" role="group" aria-label="Language">
+      <button type="button" id="lang-ja" class="on" onclick="setLang('ja')">日本語</button>
+      <button type="button" id="lang-en" onclick="setLang('en')">English</button>
+    </div>
+    <a class="btn" href="#quiz" data-i18n="startNav"></a>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="mandala" viewBox="0 0 200 200" aria-hidden="true">
+    <g fill="none" stroke="#c07a72" stroke-width="0.5">
+      <circle cx="100" cy="100" r="96"/><circle cx="100" cy="100" r="78"/>
+      <circle cx="100" cy="100" r="54"/><circle cx="100" cy="100" r="30"/>
+      <path d="M100 4 L196 100 L100 196 L4 100 Z"/>
+      <path d="M32 32 L168 32 L168 168 L32 168 Z"/>
+      <path d="M100 22 L178 100 L100 178 L22 100 Z"/>
+      <g stroke-width="0.4">
+        <line x1="100" y1="4" x2="100" y2="196"/><line x1="4" y1="100" x2="196" y2="100"/>
+        <line x1="32" y1="32" x2="168" y2="168"/><line x1="168" y1="32" x2="32" y2="168"/>
+        <circle cx="100" cy="46" r="14"/><circle cx="154" cy="100" r="14"/>
+        <circle cx="100" cy="154" r="14"/><circle cx="46" cy="100" r="14"/>
+      </g>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="fx" style="animation-delay:.05s"><span class="eyebrow" data-i18n="heroTag"></span></div>
+    <h1 class="fx" style="animation-delay:.11s" id="heroTitle"></h1>
+    <div class="rule fx" style="animation-delay:.15s"></div>
+    <p class="lead fx" style="animation-delay:.19s" data-i18n="heroLead"></p>
+    <div class="fx" style="animation-delay:.25s"><a class="btn" href="#quiz" data-i18n="startBtn"></a></div>
+    <p class="meta fx" style="animation-delay:.31s" data-i18n="heroMeta"></p>
+  </div>
+</section>
+
+<section class="sec" id="quiz" style="background:#fff">
+  <div class="wrap">
+    <div class="card quizcard reveal">
+      <div class="qhead"><span id="qcount"></span><span id="qpct">0%</span></div>
+      <div class="bar"><i id="qbar"></i></div>
+      <div id="qbody" class="qbody"></div>
+      <div style="margin-top:22px"><button class="btn ghost" id="backbtn" style="display:none" data-i18n="back"></button></div>
+    </div>
+  </div>
+</section>
+
+<section id="result" class="sec" style="background:var(--panel)">
+  <div class="wrap">
+    <div class="typehead reveal">
+      <div class="sanskrit" id="rsans"></div>
+      <h2 id="rtype"></h2>
+      <div class="el" id="rel"></div>
+      <p id="rdesc"></p>
+    </div>
+
+    <div class="grid2" style="margin-top:22px">
+      <div class="card pad reveal">
+        <h3 class="h3" data-i18n="balanceTitle"></h3>
+        <div class="scores" id="scores"></div>
+        <p class="note" style="margin-top:18px" data-i18n="balanceNote"></p>
+      </div>
+      <div class="card pad reveal">
+        <h3 class="h3" data-i18n="fitTitle"></h3>
+        <p id="rfit" style="font-size:17px;color:var(--sub)"></p>
+        <div class="why" style="margin-top:22px">
+          <b data-i18n="stepLabel"></b>
+          <span id="rstep"></span>
+        </div>
+        <button class="btn ghost" style="margin-top:22px" onclick="restart()" data-i18n="again"></button>
+      </div>
+    </div>
+
+    <div class="card pad reveal" style="margin-top:22px">
+      <h3 class="h3" data-i18n="planTitle"></h3>
+      <p class="note" style="margin-bottom:20px" data-i18n="planNote"></p>
+      <div class="plan" id="plan"></div>
+      <div class="why" id="feature"></div>
+    </div>
+
+    <div class="card pad reveal" style="margin-top:22px">
+      <h3 class="h3" data-i18n="roadTitle"></h3>
+      <div class="qhead" style="margin-top:10px"><span id="rmcount"></span><span id="rmpct">0%</span></div>
+      <div class="bar" style="margin-bottom:24px"><i id="rmbar"></i></div>
+      <div class="weeks" id="weeks"></div>
+      <p class="note" style="margin-top:18px" data-i18n="roadNote"></p>
+    </div>
+
+    <div style="text-align:center;margin-top:28px">
+      <button class="btn" onclick="window.print()" data-i18n="printBtn"></button>
+      <p class="note" style="margin-top:12px" data-i18n="printNote"></p>
+    </div>
+
+    <div class="ctabox reveal" style="margin-top:56px">
+      <h2 id="ctatitle"></h2>
+      <p id="ctatext"></p>
+      <a class="btn" id="ctabtn" href="https://www.reddibird.com/" target="_blank" rel="noopener" data-i18n="ctaBtn"></a>
+      <p class="sm" data-i18n="ctaNote"></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="voices">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;margin-bottom:40px">
+      <span class="eyebrow">VOICE</span>
+      <h2 style="font-size:clamp(24px,3.4vw,34px);margin-top:16px" data-i18n="voiceTitle"></h2>
+      <p class="note" style="margin-top:12px" data-i18n="voiceNote"></p>
+    </div>
+    <div class="voices" id="voices"></div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="background:var(--panel)">
+  <div class="wrap" style="max-width:820px">
+    <div class="reveal" style="text-align:center;margin-bottom:36px">
+      <span class="eyebrow">FAQ</span>
+      <h2 style="font-size:clamp(24px,3.4vw,34px);margin-top:16px" data-i18n="faqTitle"></h2>
+    </div>
+    <div class="faq reveal" id="faqlist"></div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap"><span data-i18n="footer1"></span><br><span data-i18n="footer2"></span></div>
+</footer>
+
+<div id="confetti"></div>
+<div id="report"></div>
+
+<script>
+/* ================= 言語データ ================= */
+var UI={
+brand:{ja:"インド占星術診断",en:"Vedic Astrology Quiz"},
+startNav:{ja:"診断をはじめる",en:"Start the quiz"},
+heroTag:{ja:"JYOTISH ／ 5問・約60秒",en:"JYOTISH / 5 questions, about 60 seconds"},
+heroTitle:{ja:'あなたの魂は、<br>どの<em>方角</em>へ向かっていますか',
+           en:'Which <em>direction</em><br>is your soul facing?'},
+heroLead:{ja:"インド占星術（ジョーティシュ）が説く、人生の4つの目的「プルシャールタ」。5つの問いに答えると、いまのあなたが強く引かれている方角と、そこから始める最初の一歩が見えてきます。",
+          en:"Jyotish, the astrology of India, describes four aims of life called the Purusharthas. Answer five questions to see which direction pulls you most right now, and the first step that follows from it."},
+startBtn:{ja:"✦ 無料で診断をはじめる",en:"✦ Take the free quiz"},
+heroMeta:{ja:"登録不要／生年月日の入力は不要です／結果はそのまま印刷・PDF保存できます",
+          en:"No sign-up. No birth date needed. Print or save your result as a PDF."},
+qcount:{ja:"問 %1 / %2",en:"Question %1 of %2"},
+done:{ja:"診断完了",en:"Completed"},
+thanks:{ja:"ありがとうございました。結果をお伝えします ✦",en:"Thank you. Here is your result ✦"},
+back:{ja:"← 1つ前に戻る",en:"← Back one question"},
+balanceTitle:{ja:"✦ 4つの方角のバランス",en:"✦ Your balance across the four directions"},
+balanceNote:{ja:"4つの方角に優劣はありません。いま強く出ている方角が、あなたの入り口になります。",
+             en:"No direction is better than another. The strongest one is simply your doorway right now."},
+fitTitle:{ja:"✦ あなたに合う関わり方",en:"✦ How this fits you"},
+stepLabel:{ja:"はじめの一歩",en:"Your first step"},
+again:{ja:"🔄 もう一度診断する",en:"🔄 Take the quiz again"},
+planTitle:{ja:"✦ あなたに向いた実践プラン",en:"✦ Your practice plan"},
+planNote:{ja:"この方角の方が、次の30日で試すと手ごたえを感じやすい3つです。<br>※カッコ内の目安は一般的なペースからの試算例です。感じ方には個人差があります。",
+          en:"Three things people with this direction tend to feel results from within 30 days.<br>Figures in brackets are illustrative estimates based on a typical pace; experiences vary."},
+roadTitle:{ja:"✦ あなた専用 30日のロードマップ",en:"✦ Your personal 30-day roadmap"},
+roadNote:{ja:"チェックはこのブラウザに保存されます。次に開いた時も続きから進められます。",
+          en:"Your checkmarks are saved in this browser, so you can pick up where you left off."},
+rmcount:{ja:"達成 %1 ／ %2",en:"%1 of %2 done"},
+week:{ja:"%1週目",en:"Week %1"},
+printBtn:{ja:"🖨️ 診断レポートを印刷（PDFで保存）",en:"🖨️ Print your report (save as PDF)"},
+printNote:{ja:"Mac／Windowsとも、印刷画面で「PDFとして保存」を選べばPDFになります。",
+           en:"On both Mac and Windows, choose Save as PDF in the print dialog."},
+ctaBtn:{ja:"✦ 入り口を見てみる",en:"✦ See where to begin"},
+ctaNote:{ja:"別のタブで開きます。この診断結果のページは閉じずに残ります。",
+         en:"Opens in a new tab, so your result stays open here."},
+voiceTitle:{ja:"受けた方に起きた変化",en:"What changed for people who tried it"},
+voiceNote:{ja:"※以下は、受けたあとの変化を分かりやすく示したイメージ例です（実在の方の証言ではありません）。",
+           en:"These are illustrative examples written to show how the result can be used. They are not testimonials from real individuals."},
+faqTitle:{ja:"よくある質問",en:"Frequently asked questions"},
+footer1:{ja:"インド占星術診断／人生の4つの目的（プルシャールタ）から見る、あなたの方角",
+         en:"Vedic Astrology Quiz / your direction seen through the four aims of life"},
+footer2:{ja:"※本診断は自己理解のための読みもので、出生図にもとづく鑑定や、医療・法律・投資の助言に代わるものではありません。",
+         en:"This quiz is for self-reflection. It is not a birth-chart reading, nor medical, legal or financial advice."},
+reportSub:{ja:"インド占星術診断レポート ／ 診断日：%1",en:"Vedic Astrology Quiz report / date: %1"},
+rAbout:{ja:"この方角について",en:"About this direction"},
+rBalance:{ja:"4つの方角のバランス",en:"Balance across the four directions"},
+rPlan:{ja:"あなたに向いた実践プラン",en:"Your practice plan"},
+rRoad:{ja:"30日のロードマップ",en:"Your 30-day roadmap"},
+rStep:{ja:"はじめの一歩：",en:"First step: "},
+rFoot:{ja:"インド占星術診断／人生の4つの目的（プルシャールタ）　※本診断は出生図にもとづく鑑定ではなく、自己理解のための読みものです。",
+       en:"Vedic Astrology Quiz / the four aims of life. This is a self-reflection tool, not a birth-chart reading."},
+reportEmpty:{ja:"先に5問の診断を受けてください。診断が終わると、ここに診断レポートが入ります。",
+             en:"Please take the five questions first. Your report will appear here afterwards."}
+};
+
+var AX=[
+ {k:"dharma",n:{ja:"ダルマ（使命）",en:"Dharma (purpose)"},s:{ja:"1・5・9の部屋",en:"houses 1, 5, 9"}},
+ {k:"artha", n:{ja:"アルタ（実り）",en:"Artha (resources)"},s:{ja:"2・6・10の部屋",en:"houses 2, 6, 10"}},
+ {k:"kama",  n:{ja:"カーマ（縁）",  en:"Kama (connection)"},s:{ja:"3・7・11の部屋",en:"houses 3, 7, 11"}},
+ {k:"moksha",n:{ja:"モークシャ（解放）",en:"Moksha (release)"},s:{ja:"4・8・12の部屋",en:"houses 4, 8, 12"}}
+];
+
+var QUESTIONS=[
+{q:{ja:"朝、目が覚めた瞬間にいちばん近い感覚はどれですか？",en:"The moment you wake up, which feeling is closest to yours?"},
+ a:[[{ja:"今日やることの意味を確かめたくなる",en:"You want to know what today is for"},"dharma","artha"],
+    [{ja:"今日の段取りを頭の中で組み立てはじめる",en:"You start arranging the day in your head"},"artha","dharma"],
+    [{ja:"誰かに会う予定を思い出して心が動く",en:"You remember who you will see, and feel it"},"kama","moksha"],
+    [{ja:"まだ何も考えず、静けさの中にいたい",en:"You want to stay in the quiet a little longer"},"moksha","kama"]]},
+{q:{ja:"うまくいかない時期、あなたを支えたのは何でしたか？",en:"In a difficult period, what carried you through?"},
+ a:[[{ja:"これは自分の役割だ、という確信",en:"A sense that this was your role to carry"},"dharma","moksha"],
+    [{ja:"手を動かし続けたこと、積み上げた形",en:"Keeping your hands busy, and what you built"},"artha","kama"],
+    [{ja:"そばにいてくれた人の存在",en:"The people who stayed close to you"},"kama","dharma"],
+    [{ja:"ひとりで内側を見つめた時間",en:"Time alone, looking inward"},"moksha","dharma"]]},
+{q:{ja:"インド占星術をやってみたいと思ったきっかけに近いのは？",en:"What drew you to try Vedic astrology?"},
+ a:[[{ja:"自分が何のために生まれたのかを知りたい",en:"You want to know what you are here for"},"dharma","moksha"],
+    [{ja:"暮らしや仕事の選択に、根拠がほしい",en:"You want something solid behind your choices"},"artha","dharma"],
+    [{ja:"人との関係を、もっと深く理解したい",en:"You want to understand your relationships"},"kama","artha"],
+    [{ja:"目に見えない世界そのものに惹かれる",en:"The unseen world itself fascinates you"},"moksha","kama"]]},
+{q:{ja:"何かに触れるとき、あなたが自然にやってしまうのは？",en:"When something new catches you, what do you naturally do?"},
+ a:[[{ja:"全体像と成り立ちから知りたくなる",en:"Look for the whole picture and where it came from"},"dharma","artha"],
+    [{ja:"表や一覧にまとめて整理したくなる",en:"Sort it into a table or a list"},"artha","kama"],
+    [{ja:"誰かと話しながら理解を深めたくなる",en:"Talk it through with someone"},"kama","dharma"],
+    [{ja:"黙って眺め、静かに感じ取りたくなる",en:"Sit with it quietly and feel your way in"},"moksha","dharma"]]},
+{q:{ja:"1年後、どんな自分になっていたいですか？",en:"A year from now, who would you like to be?"},
+ a:[[{ja:"自分の道を、迷わず歩いている",en:"Walking your own path without hesitating"},"dharma","kama"],
+    [{ja:"手にしたものが、暮らしの形になっている",en:"What you gained has taken shape in daily life"},"artha","moksha"],
+    [{ja:"まわりの人に、光を渡せている",en:"Passing light on to the people around you"},"kama","artha"],
+    [{ja:"何が起きても、静かでいられる",en:"Staying calm whatever happens"},"moksha","artha"]]}
+];
+
+var TYPES={
+dharma:{
+ sans:"DHARMA",
+ c1:"#fae3d3",c2:"#f6d3bf",acc:"#a8542f",
+ name:{ja:"ダルマ ― 灯をかかげる人",en:"Dharma — the one who carries the lamp"},
+ el:{ja:"火のエネルギー（アグニ）",en:"The element of fire (Agni)"},
+ desc:{ja:"あなたがいま強く引かれているのは、自分の役割と意味を確かめる方角です。インド占星術で1・5・9の部屋が示す領域で、自分は何のためにここにいるのかという問いが、原動力になります。答えを外に探すより、内側にある確信を言葉にしていく道が合っています。",
+       en:"You are drawn to the direction of purpose and meaning. In Jyotish this is the field of houses 1, 5 and 9, where the question of why you are here becomes your fuel. Rather than searching outside, your path is to put into words the certainty already inside you."},
+ fit:{ja:"全体像から入るのが向いています。細かい技法より先に、インド占星術がどんな世界観の上に立っているかを知ると、細部が一気に腑に落ちます。触れたことを自分の言葉で言い直す習慣をつけると、身につくのが早くなります。",
+      en:"Start from the big picture. Knowing the worldview Jyotish rests on makes the details fall into place far faster than memorising techniques first. Say what you meet in your own words, and it stays with you."},
+ step:{ja:"ノートの1ページ目に「私はなぜこれに惹かれたのか」を3行で書いてください。迷ったとき、そこへ戻れる灯になります。",
+       en:"On the first page of a notebook, write three lines on why this drew you in. It becomes the lamp you return to when you lose your way."},
+ plan:[[{ja:"世界観から先に触れる",en:"Meet the worldview first"},
+        {ja:"用語の暗記に入る前に全体像が入るので、途中で嫌にならずに済みます（目安：最初の1週間で迷いが減ります）。",
+         en:"You get the whole shape before any vocabulary, so you are less likely to lose interest (typically less confusion within the first week)."}],
+       [{ja:"触れたことを自分の言葉で書き直す",en:"Rewrite what you meet in your own words"},
+        {ja:"理解が定着し、人に説明できる形になります（目安：1日15分で、4週間後には人に話せる状態に）。",
+         en:"It settles into something you can explain (typically 15 minutes a day, and you can talk about it after four weeks)."}],
+       [{ja:"自分の問いを1つ立てて追いかける",en:"Choose one question of your own and follow it"},
+        {ja:"知識集めで終わらず、自分の答えに向かって進みます。",
+         en:"You move toward your own answer instead of just collecting facts."}]],
+ feat:{ja:"あなたに合う進め方：意味から入る",en:"How to go about it: start from meaning"},
+ featwhy:{ja:"ダルマの方角の方は、細かい技法から入ると手が止まりやすい傾向があります。先に「なぜそうなっているのか」を押さえると、同じ内容でも入り方が変わります。順番を、意味 → 構造 → 技法、と組み替えてみてください。",
+          en:"People in the Dharma direction often stall when they begin with technique. Understanding why something is the way it is changes how the same material lands. Try the order: meaning, then structure, then technique."},
+ road:[[{ja:"惹かれた理由を言葉にする",en:"Put into words why it drew you"},{ja:"なぜ惹かれたかを3行で書く",en:"Write three lines on what drew you"},{ja:"4つの方角の意味をひと通り読む",en:"Read through what the four directions mean"}],
+       [{ja:"全体像をつかむ",en:"Get the whole picture"},{ja:"12の部屋が何を表すかを一覧にする",en:"List what the twelve houses stand for"},{ja:"関心が強い部屋を3つ選ぶ",en:"Pick the three houses that interest you"}],
+       [{ja:"自分の言葉に置き換える",en:"Put it in your own words"},{ja:"出てきた用語を日本語で言い直す",en:"Restate the terms in plain language"},{ja:"誰か1人に5分で説明してみる",en:"Explain it to one person in five minutes"}],
+       [{ja:"問いを立てて深める",en:"Deepen it with a question"},{ja:"自分の問いを1つ決める",en:"Settle on one question of your own"},{ja:"30日を1ページにまとめる",en:"Sum up the 30 days on one page"}]],
+ cta:{t:{ja:"意味から触れる道を、ひとりで探さなくて大丈夫です",en:"You do not have to find the path from meaning alone"},
+      p:{ja:"ダルマの方角の方は、順番さえ合えば一気に進みます。全体像から入る入り口をご覧ください。",
+         en:"People in the Dharma direction move quickly once the order is right. Start where the whole picture comes first."}}
+},
+artha:{
+ sans:"ARTHA",
+ c1:"#f2ecd9",c2:"#e8e3c8",acc:"#6d6a2f",
+ name:{ja:"アルタ ― 大地を耕す人",en:"Artha — the one who tends the ground"},
+ el:{ja:"地のエネルギー（プリティヴィー）",en:"The element of earth (Prithvi)"},
+ desc:{ja:"あなたがいま強く引かれているのは、手にしたものを暮らしの形に変える方角です。インド占星術で2・6・10の部屋が示す領域で、役に立つか、続けられるかが自然と判断の軸になります。手を動かしながら分かっていく道が合っています。",
+       en:"You are drawn to the direction that turns what you gain into daily life. In Jyotish this is the field of houses 2, 6 and 10, where usefulness and sustainability become your natural measure. You understand things by handling them."},
+ fit:{ja:"型と手順から入るのが向いています。表や一覧に整理し、決まった時間に少しずつ積み上げるやり方が続きます。抽象的な話が長く続くと退屈になるので、必ず具体例とセットにしてください。",
+      en:"Start from form and procedure. Sort things into tables, and add a little at the same time each day. Long stretches of abstraction lose you, so pair every idea with a concrete example."},
+ step:{ja:"触れる時間を、毎日同じ時刻に15分だけ確保してください。中身より先に、続く仕組みを作るのがあなたの近道です。",
+       en:"Set aside fifteen minutes at the same time each day. Building a habit that holds comes before the content, for you."},
+ plan:[[{ja:"時間を固定する",en:"Fix the time"},
+        {ja:"気力に頼らず続けられます（目安：毎日15分 × 30日＝7時間半の積み上げ）。",
+         en:"You keep going without relying on motivation (roughly 15 minutes a day for 30 days adds up to seven and a half hours)."}],
+       [{ja:"一覧表にまとめながら進める",en:"Build a table as you go"},
+        {ja:"記憶の負担が減り、あとから引ける自分の資料になります。",
+         en:"Less to hold in your head, and you end up with a reference of your own."}],
+       [{ja:"1つを実生活で試す",en:"Try one thing in real life"},
+        {ja:"知識が体験に変わり、忘れにくくなります（目安：週1回で、4週間後に4つの手応え）。",
+         en:"Knowledge turns into experience and stays (about one a week, so four small results after four weeks)."}]],
+ feat:{ja:"あなたに合う進め方：形にしながら進む",en:"How to go about it: make something as you go"},
+ featwhy:{ja:"アルタの方角の方は、成果が見えないと熱が下がりやすい傾向があります。ノートの枚数、まとめた表の数など、目に見える形が残るやり方にすると続きます。1週間ごとに、できあがったものを眺める時間を作ってください。",
+          en:"People in the Artha direction cool off when nothing visible accumulates. Choose approaches that leave something behind, and set aside time each week just to look at what you have made."},
+ road:[[{ja:"続く仕組みを作る",en:"Build a habit that holds"},{ja:"毎日15分の時間を決める",en:"Choose your 15 minutes a day"},{ja:"記録するノートか表を用意する",en:"Set up a notebook or table"}],
+       [{ja:"基本を表に整理する",en:"Organise the basics"},{ja:"12の部屋を一覧表にまとめる",en:"Put the twelve houses in a table"},{ja:"9つの天体の意味を1行ずつ書く",en:"Write one line per planet"}],
+       [{ja:"暮らしの中で試す",en:"Try it in daily life"},{ja:"1日の出来事を4つの方角で分類する",en:"Sort a day's events into the four directions"},{ja:"週末に気づきを3行で残す",en:"Note three lines each weekend"}],
+       [{ja:"自分の資料にする",en:"Turn it into your reference"},{ja:"30日分の表を1つにまとめる",en:"Merge the tables into one"},{ja:"次の30日で扱うことを決める",en:"Decide what the next 30 days hold"}]],
+ cta:{t:{ja:"続く形で触れてみたい方へ",en:"For those who want something they can keep up"},
+      p:{ja:"アルタの方角の方は、仕組みさえ整えば必ず積み上がります。手順のある入り口をご覧ください。",
+         en:"People in the Artha direction accumulate steadily once the structure is right. Start where there are clear steps."}}
+},
+kama:{
+ sans:"KAMA",
+ c1:"#fbe0e5",c2:"#f6ccd6",acc:"#a4506a",
+ name:{ja:"カーマ ― 縁を結ぶ人",en:"Kama — the one who ties the threads"},
+ el:{ja:"水のエネルギー（ジャラ）",en:"The element of water (Jala)"},
+ desc:{ja:"あなたがいま強く引かれているのは、人との関わりの中で自分を知る方角です。インド占星術で3・7・11の部屋が示す領域で、誰かの言葉や存在が、そのまま入り口になります。ひとりで完結させるより、対話の中で深まっていく道が合っています。",
+       en:"You are drawn to the direction where you come to know yourself through others. In Jyotish this is the field of houses 3, 7 and 11, where someone's words or presence becomes your doorway. You deepen in dialogue rather than alone."},
+ fit:{ja:"人と話しながら触れるのが向いています。読んだだけでは輪郭がぼやけるので、誰かに話す、あるいは書いて読んでもらう工程を必ず入れてください。実在の人間関係を題材にすると、一気に立体的になります。",
+      en:"Engage while talking with someone. Reading alone leaves the outline blurred, so always include telling someone or having someone read what you wrote. Use your actual relationships as material and it comes alive."},
+ step:{ja:"話せる相手を1人決めてください。相手がいるだけで、あなたの理解は倍の速さで進みます。",
+       en:"Choose one person you can talk to. Simply having a listener doubles your pace."},
+ plan:[[{ja:"話す相手を1人決める",en:"Choose one person to talk with"},
+        {ja:"理解が言葉になり、記憶に残ります（目安：週1回の対話で、4週間後に自分の言葉が固まります）。",
+         en:"Understanding turns into language and sticks (about one conversation a week, and your own words settle after four)."}],
+       [{ja:"身近な関係を題材にする",en:"Use the relationships around you"},
+        {ja:"抽象的な用語が、生きた例と結びつきます。",
+         en:"Abstract terms attach themselves to living examples."}],
+       [{ja:"気づきを人に見える形で残す",en:"Leave your notes where others can see"},
+        {ja:"続ける張り合いが生まれ、同じ関心の人とつながる入り口にもなります。",
+         en:"It gives you a reason to continue and becomes a doorway to people with the same interest."}]],
+ feat:{ja:"あなたに合う進め方：対話で深める",en:"How to go about it: deepen through dialogue"},
+ featwhy:{ja:"カーマの方角の方は、ひとりきりだと熱が続きにくい傾向があります。同じことに関心のある人がいる場に身を置くだけで、進み方が変わります。話し相手、集まり、感想を書ける場所のどれか1つを、最初の1週間で確保してください。",
+          en:"People in the Kama direction lose momentum in isolation. Simply being where others share the interest changes everything. In your first week, secure one of these: a conversation partner, a gathering, or a place to post what you notice."},
+ road:[[{ja:"話す相手を見つける",en:"Find someone to talk to"},{ja:"分かち合う相手か場を1つ決める",en:"Choose one person or place to share with"},{ja:"惹かれた理由を相手に伝える",en:"Tell them what drew you in"}],
+       [{ja:"身近な例で見てみる",en:"Look at what is near you"},{ja:"4つの方角で自分と身近な人を見る",en:"See yourself and others through the four directions"},{ja:"気づいたことを話してみる",en:"Say out loud what you noticed"}],
+       [{ja:"説明の型を作る",en:"Build your way of explaining"},{ja:"3分で説明できる要約を書く",en:"Write a three-minute summary"},{ja:"実際に話して反応を聞く",en:"Try it on someone and listen back"}],
+       [{ja:"分かち合いを続ける",en:"Keep sharing"},{ja:"気づきを残す場を作る",en:"Make a place to keep your notes"},{ja:"次の30日を一緒に進める人を誘う",en:"Invite someone into the next 30 days"}]],
+ cta:{t:{ja:"ひとりで向き合わなくていい入り口があります",en:"There is a doorway where you are not on your own"},
+      p:{ja:"カーマの方角の方は、人と交わる場でいちばん伸びます。分かち合える場の入り口をご覧ください。",
+         en:"People in the Kama direction grow most where others are present. Start where there is company."}}
+},
+moksha:{
+ sans:"MOKSHA",
+ c1:"#ece7f2",c2:"#ded9ec",acc:"#5f5590",
+ name:{ja:"モークシャ ― 静けさに還る人",en:"Moksha — the one who returns to stillness"},
+ el:{ja:"空のエネルギー（アーカーシャ）",en:"The element of space (Akasha)"},
+ desc:{ja:"あなたがいま強く引かれているのは、外側の成果ではなく内側の静けさへ向かう方角です。インド占星術で4・8・12の部屋が示す領域で、目に見えないものに触れることそのものが目的になります。急がず、深く沈んでいく道が合っています。",
+       en:"You are drawn toward inner stillness rather than outward results. In Jyotish this is the field of houses 4, 8 and 12, where touching the unseen is itself the point. Your path is not to hurry, but to sink deep."},
+ fit:{ja:"静かに眺め、感じ取るのが向いています。効率や進み具合を測ると苦しくなるので、量ではなく深さで進めてください。瞑想や内省の時間と組み合わせると、体に入っていきます。",
+      en:"Look quietly and feel your way. Measuring efficiency or progress only hurts, so go by depth rather than volume. Pair it with meditation or reflection and it settles into the body."},
+ step:{ja:"触れる前に、3分だけ何もしない時間を取ってください。あなたの理解は、静けさの後にいちばん深く入ります。",
+       en:"Before you begin, take three minutes of doing nothing. What follows stillness reaches you most deeply."},
+ plan:[[{ja:"前に3分の静けさを置く",en:"Place three minutes of quiet first"},
+        {ja:"集中が深まり、同じ時間でも入り方が変わります。",
+         en:"Attention deepens, and the same minutes land differently."}],
+       [{ja:"進み具合ではなく深さで測る",en:"Measure depth, not progress"},
+        {ja:"比較による焦りが減り、続きます（目安：週に1つの概念を、深く1つだけ）。",
+         en:"Comparison loosens its grip and you continue (about one idea a week, taken deeply)."}],
+       [{ja:"感じたことを日記に残す",en:"Keep a journal of what you feel"},
+        {ja:"知識ではなく体験として蓄積され、後から大きな理解につながります。",
+         en:"It accumulates as experience rather than information, and later becomes understanding."}]],
+ feat:{ja:"あなたに合う進め方：深さで進む",en:"How to go about it: go by depth"},
+ featwhy:{ja:"モークシャの方角の方は、日程に追われると本来の力が出ない傾向があります。1週間に1つの概念だけを、時間をかけて味わう進め方に切り替えてください。遅れているように見えて、実際にはいちばん深いところまで届きます。",
+          en:"People in the Moksha direction do not thrive on a schedule that pushes. Take one idea a week and stay with it. It looks slow, and it reaches furthest."},
+ road:[[{ja:"静けさの時間を置く",en:"Make room for stillness"},{ja:"毎日3分、何もしない時間を作る",en:"Three minutes of nothing each day"},{ja:"心に残る問いを1つ書き出す",en:"Write down the question that stays with you"}],
+       [{ja:"1つの概念を深く読む",en:"Stay with one idea"},{ja:"今週扱う概念を1つに決める",en:"Choose this week's single idea"},{ja:"感じたことを毎日3行残す",en:"Three lines a day on what you felt"}],
+       [{ja:"内側と結びつける",en:"Connect it inward"},{ja:"自分の体験と概念を重ねてみる",en:"Lay the idea over your own experience"},{ja:"違和感があった点を書き留める",en:"Note where something felt off"}],
+       [{ja:"静かにまとめる",en:"Close it quietly"},{ja:"30日で残った問いを書き出す",en:"Write the questions that remain"},{ja:"次に深めたい概念を1つ選ぶ",en:"Choose the next idea to sit with"}]],
+ cta:{t:{ja:"急がない触れ方を大切にしたい方へ",en:"For those who would rather not hurry"},
+      p:{ja:"モークシャの方角の方は、深く沈むほど遠くまで届きます。静けさから始まる入り口をご覧ください。",
+         en:"People in the Moksha direction reach furthest by going deepest. Start where it begins in quiet."}}
+}
+};
+
+var VOICES=[
+ {q:{ja:"「用語が多くて途中で止まっていましたが、自分の方角がダルマだと分かってから、まず何から見ればいいかが決まりました。迷う時間が減ったのが一番の収穫です。」",
+     en:"\"I kept stalling on the vocabulary. Once I saw that my direction was Dharma, I knew where to look first. Less time spent hesitating was the real gain.\""},
+  w:{ja:"イメージ例：40代・会社員",en:"Illustrative example: 40s, office worker"}},
+ {q:{ja:"「30日ロードマップの1週目だけを淡々とやりました。1日15分でも、4週間たつと見える景色が変わります。」",
+     en:"\"I just did week one of the roadmap, plainly. Fifteen minutes a day, and after four weeks the view had changed.\""},
+  w:{ja:"イメージ例：30代・自営業",en:"Illustrative example: 30s, self-employed"}},
+ {q:{ja:"「占いを当てものとして見ていたのですが、人生の4つの目的という捉え方を知って、自分の内側を見る道具に変わりました。」",
+     en:"\"I had seen astrology as fortune-telling. Meeting the four aims of life turned it into a way of looking inward.\""},
+  w:{ja:"イメージ例：50代・講師業",en:"Illustrative example: 50s, teacher"}}
+];
+
+var FAQ=[
+ {q:{ja:"生年月日を入れなくても診断できるのですか？",en:"Can this work without my birth date?"},
+  a:{ja:"この診断は、出生図（ホロスコープ）を計算するものではありません。インド占星術が説く人生の4つの目的「プルシャールタ」という枠組みを使って、いまのあなたの関心がどの方角に向いているかを5つの問いから見るものです。生年月日にもとづく本格的な鑑定とは別のもの、とお考えください。",
+     en:"This is not a birth-chart calculation. It uses the Purusharthas, the four aims of life described in Vedic astrology, to show which direction your interest leans toward right now, based on five questions. It is a different thing from a full reading based on your birth data."}},
+ {q:{ja:"インド占星術の知識がなくても大丈夫ですか？",en:"Do I need any prior knowledge?"},
+  a:{ja:"大丈夫です。設問は日常の感じ方を聞くものだけで、専門用語は使っていません。結果の中で用語が出てくるときは、必ず日本語の言い換えを添えています。",
+     en:"None at all. The questions ask only about how you experience ordinary days. Wherever a term appears in the result, a plain-language gloss comes with it."}},
+ {q:{ja:"4つの方角とは何ですか？",en:"What are the four directions?"},
+  a:{ja:"ダルマ（使命）、アルタ（実り）、カーマ（縁）、モークシャ（解放）の4つです。インド占星術では、出生図の12の部屋がこの4つに3つずつ分けられ、人生の4つの目的として読み解かれます。この診断は、その考え方を入り口として使っています。",
+     en:"Dharma (purpose), Artha (resources), Kama (connection) and Moksha (release). In Vedic astrology the twelve houses of a chart are grouped into these four, three houses each, as the four aims of life. This quiz uses that framework as a doorway."}},
+ {q:{ja:"結果は保存できますか。無料ですか？",en:"Can I keep the result? Is it free?"},
+  a:{ja:"無料で、登録も不要です。結果画面の「🖨️ 診断レポートを印刷（PDFで保存）」からA4のレポートとして保存できます。30日ロードマップのチェックもブラウザに残ります。回答が外部へ送信されることはありません。",
+     en:"It is free and needs no sign-up. Use the print button on the result screen to save an A4 report as a PDF. Your roadmap checkmarks stay in this browser, and your answers are never sent anywhere."}},
+ {q:{ja:"結果の方角は変わりますか？",en:"Will my direction change?"},
+  a:{ja:"変わります。人生の時期によって、強く出る方角は移ります。季節の変わり目や、大きな決断の前後に受け直すと、いま自分がどこにいるかが確かめられます。",
+     en:"Yes. The direction that stands out shifts with the seasons of a life. Taking it again at a turning point shows you where you now stand."}}
+];
+
+/* ================= 状態 ================= */
+var LANG="ja";
+try{ var sv=localStorage.getItem("yunico.jyotish.lang"); if(sv==="ja"||sv==="en") LANG=sv; }catch(e){}
+var idx=0, answers=[], finished=false, curType=null,
+    reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var $=function(id){return document.getElementById(id)};
+function t(o){ return o&&o[LANG]!==undefined ? o[LANG] : (o&&o.ja) || ""; }
+function fmt(s){ var a=arguments; return String(s).replace(/%(\d)/g,function(m,i){ return a[+i]; }); }
+function esc(s){ return String(s).replace(/[&<>"']/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+
+function setLang(l){
+  LANG=l;
+  try{ localStorage.setItem("yunico.jyotish.lang",l); }catch(e){}
+  document.documentElement.lang=l;
+  $("lang-ja").className = l==="ja" ? "on" : "";
+  $("lang-en").className = l==="en" ? "on" : "";
+  document.title = l==="ja" ? "インド占星術診断｜あなたの魂が向かう4つの方角"
+                            : "Vedic Astrology Quiz | Which direction is your soul facing?";
+  applyStatic();
+  if(finished && curType){ showResult(true); } else { renderQ(); }
+}
+
+function applyStatic(){
+  document.querySelectorAll("[data-i18n]").forEach(function(e){
+    e.textContent=t(UI[e.getAttribute("data-i18n")]);
+  });
+  $("heroTitle").innerHTML=t(UI.heroTitle);          /* 自分で書いた文言のみ。入力は入らない */
+  $("planNote").innerHTML=t(UI.planNote);
+  renderVoices(); renderFaq();
+  if(!finished) $("report").innerHTML='<p style="font-size:14px">'+esc(t(UI.reportEmpty))+"</p>";
+}
+/* planNote だけ改行タグを使うので id を付ける */
+document.querySelector('[data-i18n="planNote"]').id="planNote";
+
+function renderVoices(){
+  var box=$("voices"); box.innerHTML="";
+  VOICES.forEach(function(v,i){
+    var c=document.createElement("div"); c.className="card voice reveal";
+    if(i) c.style.transitionDelay=(i*0.08)+"s";
+    var q=document.createElement("p"); q.className="q"; q.textContent=t(v.q);
+    var w=document.createElement("div"); w.className="who"; w.textContent=t(v.w);
+    c.appendChild(q); c.appendChild(w); box.appendChild(c);
+    if(obs) obs.observe(c);
+  });
+}
+function renderFaq(){
+  var box=$("faqlist"); box.innerHTML="";
+  FAQ.forEach(function(f,i){
+    var d=document.createElement("details"); if(i===0) d.open=true;
+    var s=document.createElement("summary"); s.textContent=t(f.q);
+    var p=document.createElement("p"); p.textContent=t(f.a);
+    d.appendChild(s); d.appendChild(p); box.appendChild(d);
+  });
+}
+
+/* ================= 診断 ================= */
+function renderQ(){
+  var q=QUESTIONS[idx];
+  $("qcount").textContent=fmt(t(UI.qcount),idx+1,QUESTIONS.length);
+  var pct=Math.round(idx/QUESTIONS.length*100);
+  $("qpct").textContent=pct+"%";
+  $("qbar").style.width=pct+"%";
+  $("backbtn").style.display= idx>0 ? "inline-flex" : "none";
+
+  var body=$("qbody"); body.innerHTML="";
+  var head=document.createElement("div"); head.className="qt"; head.textContent=t(q.q);
+  body.appendChild(head);
+  var keys= LANG==="ja" ? ["一","二","三","四"] : ["A","B","C","D"];
+  q.a.forEach(function(a,i){
+    var b=document.createElement("button"); b.className="opt"; b.type="button";
+    var k=document.createElement("span"); k.className="k"; k.textContent=keys[i];
+    var s=document.createElement("span"); s.textContent=t(a[0]);
+    b.appendChild(k); b.appendChild(s);
+    b.addEventListener("click",function(){ pick(a[1],a[2]); });
+    body.appendChild(b);
+  });
+  body.style.animation="none"; void body.offsetWidth; body.style.animation="";
+  var first=body.querySelector(".opt");
+  if(idx>0 && first) first.focus({preventScroll:true});
+}
+
+function pick(ax,ax2){
+  if(finished) return;
+  answers[idx]=[ax,ax2]; idx++;
+  if(idx<QUESTIONS.length){ renderQ(); }
+  else{
+    finished=true;
+    $("qbar").style.width="100%"; $("qpct").textContent="100%";
+    $("qcount").textContent=t(UI.done);
+    $("backbtn").style.display="none";
+    $("qbody").innerHTML='<div class="qt">'+esc(t(UI.thanks))+"</div>";
+    setTimeout(function(){ showResult(); },280);
+  }
+}
+$("backbtn").addEventListener("click",function(){ if(idx>0 && !finished){ idx--; renderQ(); }});
+
+function calcScores(){
+  var s={dharma:0,artha:0,kama:0,moksha:0};
+  answers.forEach(function(a){ s[a[0]]+=2; if(a[1]) s[a[1]]+=1; });
+  return s;
+}
+function topType(s){
+  var best=AX[0].k;
+  AX.forEach(function(a){ if(s[a.k]>s[best]) best=a.k; });
+  var tied=AX.filter(function(a){ return s[a.k]===s[best]; }).map(function(a){ return a.k; });
+  if(tied.length>1){
+    var cnt={}, last=answers[answers.length-1][0];
+    answers.forEach(function(a){ cnt[a[0]]=(cnt[a[0]]||0)+1; });
+    tied.sort(function(x,y){
+      var d=(cnt[y]||0)-(cnt[x]||0); if(d) return d;
+      if(x===last) return -1; if(y===last) return 1; return 0;
+    });
+    best=tied[0];
+  }
+  return best;
+}
+
+function showResult(quiet){
+  var s=calcScores(), key=topType(s), T=TYPES[key];
+  curType=key;
+  var root=document.documentElement.style;
+  root.setProperty("--tc1",T.c1); root.setProperty("--tc2",T.c2); root.setProperty("--tacc",T.acc);
+
+  $("rsans").textContent=T.sans;
+  $("rtype").textContent=t(T.name);
+  $("rel").textContent=t(T.el);
+  $("rdesc").textContent=t(T.desc);
+  $("rfit").textContent=t(T.fit);
+  $("rstep").textContent=t(T.step);
+
+  var box=$("scores"); box.innerHTML="";
+  AX.forEach(function(a){
+    var pct=Math.round(s[a.k]/(QUESTIONS.length*2)*100);
+    var row=document.createElement("div"); row.className="srow";
+    var lab=document.createElement("div"); lab.className="lab";
+    var l=document.createElement("span"); l.textContent=t(a.n);
+    var sm=document.createElement("small"); sm.textContent=t(a.s); l.appendChild(sm);
+    var v=document.createElement("i"); v.textContent=pct+"%";
+    lab.appendChild(l); lab.appendChild(v);
+    var bar=document.createElement("div"); bar.className="sbar";
+    var fill=document.createElement("i"); fill.setAttribute("data-w",pct);
+    bar.appendChild(fill); row.appendChild(lab); row.appendChild(bar); box.appendChild(row);
+  });
+
+  var pb=$("plan"); pb.innerHTML="";
+  T.plan.forEach(function(p){
+    var it=document.createElement("div"); it.className="item";
+    var b=document.createElement("b"); b.textContent=t(p[0]);
+    var sp=document.createElement("span"); sp.textContent=t(p[1]);
+    it.appendChild(b); it.appendChild(sp); pb.appendChild(it);
+  });
+
+  var f=$("feature"); f.innerHTML="";
+  var fb=document.createElement("b"); fb.textContent=t(T.feat);
+  var fs=document.createElement("span"); fs.textContent=t(T.featwhy);
+  f.appendChild(fb); f.appendChild(fs);
+
+  $("ctatitle").textContent=t(T.cta.t);
+  $("ctatext").textContent=t(T.cta.p);
+
+  buildRoadmap(key,T);
+  buildReport(T,s);
+
+  $("result").style.display="block";
+  document.querySelectorAll("#result .reveal").forEach(function(e){ obs.observe(e); });
+  if(!quiet) $("result").scrollIntoView({behavior:reduce?"auto":"smooth"});
+  setTimeout(function(){
+    document.querySelectorAll(".sbar > i").forEach(function(b){ b.style.width=b.getAttribute("data-w")+"%"; });
+  },320);
+  if(!quiet && !reduce) confetti();
+}
+
+function restart(){
+  idx=0; answers=[]; finished=false; curType=null;
+  $("result").style.display="none";
+  renderQ();
+  $("quiz").scrollIntoView({behavior:reduce?"auto":"smooth"});
+}
+
+/* ================= ロードマップ ================= */
+var WK=["w1","w2","w3","w4"], WICON=["🔥","🌱","💧","🌙"], curKey="dharma";
+function storeKey(k){ return "yunico.jyotish.roadmap."+k; }
+function loadDone(k){
+  try{
+    var v=JSON.parse(localStorage.getItem(storeKey(k))||"{}");
+    return (v && typeof v==="object" && !Array.isArray(v)) ? v : {};
+  }catch(e){ return {}; }
+}
+function saveDone(k,o){ try{ localStorage.setItem(storeKey(k),JSON.stringify(o)); }catch(e){} }
+
+function buildRoadmap(key,T){
+  curKey=key;
+  var done=loadDone(key), box=$("weeks"); box.innerHTML="";
+  T.road.forEach(function(w,wi){
+    var wrap=document.createElement("div"); wrap.className="week";
+    var hd=document.createElement("div"); hd.className="wh "+WK[wi];
+    hd.textContent=WICON[wi]+" "+fmt(t(UI.week),wi+1);
+    var ul=document.createElement("ul");
+    for(var si=0;si<w.length;si++){
+      (function(si){
+        var id=wi+"-"+si, on=!!done[id];
+        var li=document.createElement("li"); li.className=on?"done":"";
+        var lb=document.createElement("label");
+        var cb=document.createElement("input"); cb.type="checkbox"; cb.checked=on;
+        var sp=document.createElement("span"); sp.textContent=t(w[si]);
+        cb.addEventListener("change",function(){
+          var d=loadDone(curKey);
+          if(cb.checked) d[id]=1; else delete d[id];
+          saveDone(curKey,d);
+          li.className=cb.checked?"done":"";
+          updateRm();
+        });
+        lb.appendChild(cb); lb.appendChild(sp); li.appendChild(lb); ul.appendChild(li);
+      })(si);
+    }
+    wrap.appendChild(hd); wrap.appendChild(ul); box.appendChild(wrap);
+  });
+  updateRm();
+}
+function updateRm(){
+  var all=$("weeks").querySelectorAll("input").length||1;
+  var n=$("weeks").querySelectorAll("input:checked").length, pct=Math.round(n/all*100);
+  $("rmcount").textContent=fmt(t(UI.rmcount),n,all);
+  $("rmpct").textContent=pct+"%";
+  $("rmbar").style.width=pct+"%";
+}
+
+
+/* ================= 紙吹雪 ================= */
+function confetti(){
+  var box=$("confetti"), cols=["#e8c5c0","#c07a72","#e8d8c6","#f3d9d5","#cdbba6","#fff"];
+  for(var i=0;i<90;i++){
+    var p=document.createElement("i");
+    p.style.left=Math.random()*100+"vw";
+    p.style.top=(-10-Math.random()*20)+"vh";
+    p.style.background=cols[i%cols.length];
+    p.style.animationDuration=(1.8+Math.random()*1.4)+"s";
+    p.style.animationDelay=(Math.random()*.5)+"s";
+    p.style.opacity=.95;
+    box.appendChild(p);
+  }
+  setTimeout(function(){ box.innerHTML=""; },3600);
+}
+
+/* ================= 印刷レポート ================= */
+function buildReport(T,s){
+  var d=new Date();
+  var ds = LANG==="ja" ? d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日"
+                       : d.toLocaleDateString("en-GB",{year:"numeric",month:"long",day:"numeric"});
+  var wc=["linear-gradient(120deg,#fae3d3,#f6d3bf)","linear-gradient(120deg,#f2ecd9,#e8e3c8)",
+          "linear-gradient(120deg,#fbe0e5,#f6ccd6)","linear-gradient(120deg,#ece7f2,#ded9ec)"];
+  var sep = LANG==="ja" ? "　／　" : " / ";
+  var h='<div class="rhead"><h1>'+esc(t(T.name))+'</h1><div class="d">'+esc(T.sans)+sep+
+        esc(fmt(t(UI.reportSub),ds))+"</div></div>";
+  h+="<h2>"+esc(t(UI.rAbout))+'</h2><p style="font-size:11.5px">'+esc(t(T.desc))+"</p>";
+  h+="<h2>"+esc(t(UI.rBalance))+"</h2>";
+  AX.forEach(function(a){
+    var pct=Math.round(s[a.k]/(QUESTIONS.length*2)*100);
+    h+='<div class="rlab"><span>'+esc(t(a.n))+"（"+esc(t(a.s))+"）</span><span>"+pct+
+       '%</span></div><div class="rbar"><i style="width:'+pct+'%"></i></div>';
+  });
+  h+="<h2>"+esc(t(UI.rPlan))+"</h2>";
+  T.plan.forEach(function(p){
+    h+='<div class="ritem"><b style="font-size:12px">'+esc(t(p[0]))+
+       '</b><br><span style="font-size:10.5px;color:#8b7f7c">'+esc(t(p[1]))+"</span></div>";
+  });
+  h+='<div class="ritem"><b style="font-size:12px">'+esc(t(T.feat))+
+     '</b><br><span style="font-size:10.5px;color:#8b7f7c">'+esc(t(UI.rStep))+esc(t(T.step))+"</span></div>";
+  h+="<h2>"+esc(t(UI.rRoad))+'</h2><div class="rweeks">';
+  T.road.forEach(function(w,wi){
+    h+='<div class="rw"><div class="t" style="background:'+wc[wi]+'">'+WICON[wi]+" "+
+       esc(fmt(t(UI.week),wi+1))+"</div><ul>";
+    for(var si=0;si<w.length;si++){ h+="<li>"+esc(t(w[si]))+"</li>"; }
+    h+="</ul></div>";
+  });
+  h+="</div>";
+  h+='<div class="foot">'+esc(t(UI.rFoot))+"</div>";
+  $("report").innerHTML=h;
+}
+
+/* ================= スクロールで出現 ================= */
+var obs;
+if(window.IntersectionObserver){
+  obs=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); obs.unobserve(e.target); } });
+  },{threshold:.12});
+}else{
+  obs={observe:function(e){ e.classList.add("in"); },unobserve:function(){}};
+}
+
+setLang(LANG);
+document.querySelectorAll(".reveal").forEach(function(e){ obs.observe(e); });
+</script>
+</body>
+</html>
